@@ -4,13 +4,12 @@ const SUPABASE_KEY =
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export async function getCountries(name, continent) {
-    // > Part D: Add a second argument to `select(` to
-    // return an exact db count of matching records
-
     // > Part A: Implement the client query from countries:
     let query = client
         .from('countries')
         //   1. select all columns
+        // > Part D: Add a second argument to `select(` to
+        // return an exact db count of matching records
         .select('*', { count: 'exact' })
         //   2. order by country name
         .order('name')

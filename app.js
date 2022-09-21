@@ -1,6 +1,6 @@
 /* Imports */
 // > Part A: Import `getCountries` from fetch-utils.js
-import { getCountries, getContinents } from '.fetch-utils.js';
+import { getCountries, getContinents } from './fetch-utils.js';
 // > Part B: Import `getContinents` from fetch-utils.js
 import { renderContinentOption, renderCountry } from './render-utils.js';
 
@@ -44,7 +44,7 @@ async function findCountries(name, continent) {
     countries = response.data;
     // > Part D: Assign to state the:
     //      - count (of db records)
-
+    count = response.count;
     displayNotifications();
     if (!error) {
         displayCountries();
@@ -78,6 +78,7 @@ function displayNotifications() {
         // > Part D: Display a message with
         //      - how many items were returned in countries array
         //      - how many total matching countries were in the db
+        notificationDisplay.textContent = `Showing ${countries.length} of ${count} matching countries`;
     }
 }
 
